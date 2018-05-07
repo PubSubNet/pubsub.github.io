@@ -1,16 +1,26 @@
 {
-  "name": "tsvue",
+  "name": "pubsubnet.github.io",
   "version": "1.0.0",
-  "description": "ts + vue",
-  "main": "index.js",
+  "description": "simple reactive web interface for pubsubnet interaction",
+  "main": "dist/bundle.js",
   "scripts": {
-    "build": "sh -c 'webpack --watch & python3 -mhttp.server 8081'",
+    "build": "webpack",
+    "dev": "sh -c 'webpack --watch & python3 -mhttp.server 8081'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pubsubnet/pubsubnet.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pubsubnet/pubsubnet.github.io/issues"
+  },
+  "homepage": "https://github.com/pubsubnet/pubsubnet.github.io#readme",
+  "author": "Cat Stevens",
   "license": "GPL-3.0",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
+    "bulma": "^0.7.1",
+    "vue-router": "^3.0.1",
     "css-loader": "^0.28.11",
     "ts-loader": "^4.2.0",
     "typescript": "^2.8.3",
