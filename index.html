@@ -4,12 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link type="text/css" rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />
+
     <title>PubSubNet</title>
-    <link type="application/x-icon" rel="icon" href="bat-chicken.ico" />
+    <link type="application/x-icon" rel="icon" href="src/img/bat-chicken.ico" />
   </head>
 
   <body>
-      <div id="psn-top"></div>
+    <div id="psn-top">
+
+      <h1 class="title is-1 is-center">PubSubNet</h1>
+
+      <router-link to="/">Default view</router-link>
+      <router-link to="/overview">Overview</router-link>
+      <router-link to="/prefs">Preferences</router-link>
+
+      <router-view>
+
+      </router-view>
+    </div>
   </body>
   <script type="text/javascript" src="./dist/bundle.js"></script>
 

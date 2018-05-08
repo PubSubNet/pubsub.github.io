@@ -1,4 +1,4 @@
-<tempplate>
+<template>
 
 </template>
 
@@ -6,6 +6,6 @@
 
 </script>
 
-<style lang="sass"> 
+<style>
 
 </style>

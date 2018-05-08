@@ -1,9 +1,10 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "development",
-  entry: './src/index.ts',
+  entry: './src/script/index.ts',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -39,11 +40,19 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+            process.env.NODE_ENV !== 'production'
+              ? 'style-loader'
+              : MiniCssExtractPlugin.loader, "css-loader", "sass-loader"
+        ]
       }
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js', '.vue', '.json'],
+    extensions: [".ts", ".js", ".vue", ".json", ".sass", ".css"],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     }
@@ -55,7 +64,14 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -70,7 +86,7 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {
-        warnings: false
+        warnings: true
       }
     }),
     new webpack.LoaderOptionsPlugin({
