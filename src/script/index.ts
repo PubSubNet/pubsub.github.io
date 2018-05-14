@@ -1,18 +1,17 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import overview from "./parts/overview";
+import prefs from "./parts/prefs";
 
 import "../style/main.scss";
 
 Vue.use(VueRouter);
 
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
-
 
 const routes = [
-  { path: '/', component: Foo },
-  { path: '/overview', component: Foo },
-  { path: '/prefs', component: Bar }
+  { path: '/', component: overview },
+  { path: '/overview', component: overview },
+  { path: '/prefs', component: prefs }
 ]
 
 // 3. Create the router instance and pass the `routes` option
@@ -29,7 +28,7 @@ let v = new Vue({
   el: "#psn-top",
   data: { name: "World" },
   components: {
-
+    overview, prefs
   },
   router: router
 });

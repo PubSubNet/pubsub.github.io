@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
   mode: "development",
@@ -27,7 +28,7 @@ module.exports = {
         }
       },
       {
-        test: /\.tsx?$/,
+        test: /\.ts$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
@@ -70,7 +71,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    })
+    }),
+    new VueLoaderPlugin()
   ]
 }
 
