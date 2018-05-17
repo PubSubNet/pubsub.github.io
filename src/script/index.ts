@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import overview from "./parts/overview";
 import prefs from "./parts/prefs";
+import help from "./parts/help";
 
 import "../style/main.scss";
 
@@ -11,7 +12,8 @@ Vue.use(VueRouter);
 const routes = [
   { path: '/', component: overview },
   { path: '/overview', component: overview },
-  { path: '/prefs', component: prefs }
+  { path: '/prefs', component: prefs },
+  { path: '/help', component: help }
 ]
 
 // 3. Create the router instance and pass the `routes` option
@@ -26,9 +28,9 @@ const router = new VueRouter({
 // whole app router-aware.
 let v = new Vue({
   el: "#psn-top",
-  data: { name: "World" },
+  // data: { name: "World" },
   components: {
-    overview, prefs
+    overview, prefs, help
   },
   router: router
 });

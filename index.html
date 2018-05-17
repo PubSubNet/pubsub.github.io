@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link type="text/css" rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />
+    <!--<link type="text/css" rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />-->
 
     <title>PubSubNet</title>
     <link type="application/x-icon" rel="icon" href="src/img/bat-chicken.ico" />
@@ -13,11 +13,13 @@
   <body>
     <div id="psn-top">
 
-      <h1 class="title is-1 is-center">PubSubNet</h1>
-
-      <router-link to="/">Default view</router-link>
-      <router-link to="/overview">Overview</router-link>
-      <router-link to="/prefs">Preferences</router-link>
+      <nav class="level">
+        <router-link class="level-item has-text-centered" to="/">Default view</router-link>
+        <router-link class="level-item has-text-centered" to="/overview">Overview</router-link>
+        <h1 class="title is-1">PubSubNet</h1>
+        <router-link class="level-item has-text-centered" to="/prefs">Preferences</router-link>
+        <router-link class="level-item has-text-centered" to="/help">Help</router-link>
+      </nav>
 
       <router-view>
 
